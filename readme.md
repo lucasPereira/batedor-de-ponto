@@ -1,6 +1,6 @@
 # Batedor de Ponto
 
-https://ponto.homologacao.ufsc.br/
+Ferramenta para agilizar o processo manual de registro de ponto através do sistema https://ponto.homologacao.ufsc.br/.
 
 ## Gerar distribuição
 
