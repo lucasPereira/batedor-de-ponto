@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<project name="batedor-de-ponto" default="construir">
+
+	<target name="construir">
+		<delete dir="construcao" />
+		<delete dir="distribuicao" />
+		<mkdir dir="construcao" />
+		<mkdir dir="distribuicao" />
+
+		<javac srcdir="src" destdir="construcao">
+			<classpath>
+				<fileset dir="lib" includes="*.jar" />
+			</classpath>
+		</javac>
+
+		<input message="Informe o usuário para autenticação" addproperty="usuario" />
+		<input message="Informe a senha para autenticação" addproperty="senha" />
+
+		<propertyfile file="distribuicao/credenciais.properties">
+			<entry key="usuario" value="${usuario}" />
+			<entry key="senha" value="${senha}" />
+		</propertyfile>
+
+		<jar destfile="distribuicao/registrar-entrada.jar" basedir="construcao">
+			<zipgroupfileset dir="lib" includes="*.jar" />
+			<manifest>
+				<attribute name="DependencyFinder" value="main" />
+				<attribute name="Main-Class" value="br.batedor.de.ponto.Entrar" />
+			</manifest>
+		</jar>
+		<jar destfile="distribuicao/registrar-saida.jar" basedir="construcao">
+			<manifest>
+				<attribute name="Main-Class" value="br.batedor.de.ponto.Sair" />
+			</manifest>
+		</jar>
+	</target>
+
+</project>
