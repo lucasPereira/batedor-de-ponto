@@ -17,6 +17,7 @@ public class Entrar {
 		});
 		driver.findElement(By.tagName("button")).click();
 		driver.findElement(By.id("btEntrada")).click();
+		driver.quit();
 	}
 
 }

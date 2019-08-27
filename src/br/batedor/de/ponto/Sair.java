@@ -17,6 +17,7 @@ public class Sair {
 		});
 		driver.findElement(By.tagName("button")).click();
 		driver.findElement(By.id("btSaida")).click();
+		driver.quit();
 	}
 
 }
