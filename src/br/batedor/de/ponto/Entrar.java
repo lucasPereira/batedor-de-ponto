@@ -5,15 +5,13 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 
 public class Entrar {
 
 	public static void main(String[] args) {
 		Credenciais credenciais = new CarregadorDeCredenciais().carregar();
-		System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new FabricaDeWebDriver().construir();
 		driver.get("https://ponto.homologacao.ufsc.br");
 		credenciais.aplicar((String usuario, String senha) -> {
 			driver.findElement(By.id("usuario")).sendKeys(usuario);

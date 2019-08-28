@@ -23,6 +23,8 @@
 			<entry key="senha" value="${senha}" />
 		</propertyfile>
 
+		<copydir src="driver" dest="distribuicao/driver"></copydir>
+
 		<jar destfile="distribuicao/registrar-entrada.jar" basedir="construcao">
 			<zipgroupfileset dir="lib" includes="*.jar" />
 			<manifest>
